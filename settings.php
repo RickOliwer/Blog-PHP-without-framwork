@@ -12,8 +12,7 @@ if(isset($_POST['submit_new_email']) && $_SESSION['token'] == $_POST['token']){
     }
 
     if(isset($_POST['old_password']) == $_SESSION['user']['password']){
-    // $email = isset($_POST['email'])?$_POST['email'] : $_SESSION['user']['email'];
-    //  $password = isset($_POST['password'])?$_POST['password'] : $_SESSION['user']['password'];
+
     $email = $_POST['email'];
     $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
 
@@ -30,18 +29,11 @@ if(isset($_POST['submit_new_email']) && $_SESSION['token'] == $_POST['token']){
         exit("wrong password!");
     }
 
-    
-    // $statement = $pdo->prepare("UPDATE users SET email = :email WHERE id = :id");
-    // $statement->bindParam(':email', $email);
-    // $statement->bindParam(':id', $id);
-
-
 } else {
     $_SESSION['token'] = bin2hex(random_bytes(32));
     $_SESSION['token-expire'] = time() + 600;
 }
 
-//print_r($_SESSION);
 ?>
 
 <h2>Settings</h2>
