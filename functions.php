@@ -30,6 +30,17 @@ function  joinUserWithPost($pdo, $userID){
     return $statement;
 }
 
+// function getTableFromDB($pdo, $tableName, $newData){
+//     $sql = sprintf(
+//         'select (%s) from %s',
+//         implode(', ', array_keys($newData)),
+//         $tableName
+//     );
+
+//     $statement = $pdo->prepare($sql);
+//     $statement->execute($newData);
+// }
+
 function getAllPosts($pdo){
     $sql = 'SELECT * FROM posts';
     $statement = $pdo->prepare($sql);
