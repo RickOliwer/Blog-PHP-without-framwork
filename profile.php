@@ -42,6 +42,15 @@ require 'header.php';
                 <li><a href="#">Settings</a></li>
                 <li><a href="#">Settings</a></li>
             </ul>
+
+            <?php foreach($usersResults as $user) : ?>
+        <div>
+            <div>
+                <a href="#"><?= $user['id']?> <?= $user['username'] ?></a>
+            </div>
+            
+        </div>
+        <?php endforeach; ?>
         </aside>
     </div>
 

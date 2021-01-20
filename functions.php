@@ -30,36 +30,15 @@ function  joinUserWithPost($pdo, $userID){
     return $statement;
 }
 
-// function getTableFromDB($pdo, $tableName, $newData){
-//     $sql = sprintf(
-//         'select (%s) from %s',
-//         implode(', ', array_keys($newData)),
-//         $tableName
-//     );
+function getTableFromDB($pdo, $tableName){
+    $sql = sprintf(
+        'select * from %s',
+        $tableName
+    );
 
-//     $statement = $pdo->prepare($sql);
-//     $statement->execute($newData);
-// }
-
-function getAllPosts($pdo){
-    $sql = 'SELECT * FROM posts';
     $statement = $pdo->prepare($sql);
-
     return $statement;
 }
-
-$posts = getAllPosts($pdo);
-$postsResults = fetchFromDataBase($posts);
-
-function getAllUsers($pdo){
-    $sql = 'SELECT * FROM users';
-    $statement = $pdo->prepare($sql);
-
-    return $statement;
-}
-
-$users = getAllPosts($pdo);
-$usersResults = fetchFromDataBase($users);
 
 function fetchFromDataBase($statement) {
     $statement->execute();
@@ -67,6 +46,11 @@ function fetchFromDataBase($statement) {
     return $statement->fetchAll(PDO::FETCH_ASSOC);
 }
 
+$posts = getTableFromDB($pdo, 'posts');
+$postsResults = fetchFromDataBase($posts);
+
+$users = getTableFromDB($pdo, 'users');
+$usersResults = fetchFromDataBase($users);
 
 function updateDB($pdo, $tableName, $newData){
     $sql = (
