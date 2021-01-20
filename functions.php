@@ -17,7 +17,7 @@ function saveToDB($pdo, $tableName, $newData){
 }
 
 function  joinUserWithPost($pdo, $userID){
-    $sql = 'SELECT users.email, posts.image AS userpost 
+    $sql = 'SELECT users.email, posts.image, posts.title, posts.textarea 
             FROM users
             LEFT JOIN posts
             ON users.id = posts.user_id
@@ -38,7 +38,7 @@ function getAllPosts($pdo){
 }
 
 $posts = getAllPosts($pdo);
-$results = fetchFromDataBase($posts);
+$postsResults = fetchFromDataBase($posts);
 
 function getAllUsers($pdo){
     $sql = 'SELECT * FROM users';
@@ -48,7 +48,7 @@ function getAllUsers($pdo){
 }
 
 $users = getAllPosts($pdo);
-$results = fetchFromDataBase($users);
+$usersResults = fetchFromDataBase($users);
 
 function fetchFromDataBase($statement) {
     $statement->execute();
