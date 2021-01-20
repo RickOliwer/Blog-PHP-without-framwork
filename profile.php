@@ -18,11 +18,13 @@ require 'header.php';
         <?php if(isset($_GET['user'])):?>
         <div class="posts">
         <?php foreach(array_reverse($postByUser) as $userPosts) : ?>
+        <div class="post-card">
         <div class="polaroid">
         <img src="images/<?= $userPosts->image?>" alt="" style="width:100%">
         <div class="post-container">
         <h3><?= $userPosts->title?></h3>
         <p><?= $userPosts->textarea ?></p>
+        </div>
         </div>
         </div>
         <?php endforeach ;?>
