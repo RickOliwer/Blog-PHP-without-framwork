@@ -7,18 +7,8 @@
     margin: 25px;
   }
   
-  .post-img{
-    width: 95%;
-    height: 95%;
-    margin: auto;
-    margin-top: 10px;
-  }
-
   .post-img img {
     width: 100%;
-    
-    
-    
   }
   
   div.post-content {
@@ -31,24 +21,5 @@
     font-size: 22px;
   }
   
-  .post-content ul {
-    list-style: none;
-    font-size: 14px;
-  }
   
-  .post-content ul li {
-    font-size: 9px;
-    margin-left: 3px;
-  }
-  
-  .post-content button {
-    padding: 10px 20px;
-    background-color: transparent;
-    border: 2px solid #333;
-    color: #333;
-    transition: 0.4s;
-    width: 89px;
-    margin: 6px 2px 6px 0px;
-    cursor: pointer;
-  }
   
