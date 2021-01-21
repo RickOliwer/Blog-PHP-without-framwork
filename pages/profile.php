@@ -2,7 +2,7 @@
 // ini_set('display_errors', 1);
 // ini_set('display_startup_errors', 1);
 // error_reporting(E_ALL);
-require 'header.php';
+require_once '../header/newheader.php';
 
 ?>
 
@@ -21,7 +21,7 @@ require 'header.php';
         <h3>Posted by <?php echo $_SESSION['user']['username'] ?></h3>
         <div class="post">
             <div class="post-img">
-                <img src="images/<?= $userPosts->image?>">
+                <img src="../images/<?= $userPosts->image?>">
             </div>
             <div class="post-content">
                 <h2><?= $userPosts->title?></h2>

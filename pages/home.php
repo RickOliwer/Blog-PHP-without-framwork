@@ -1,6 +1,6 @@
 <?php
-require_once 'header.php';
-require_once 'functions.php';
+require_once '../header/newheader.php';
+require_once '../functions/functions.php';
 ?>
 <main class="main-container">
 
@@ -12,10 +12,11 @@ require_once 'functions.php';
 
 <?php foreach(array_reverse($postsResults) as $allPosts) : ?>
     <div class="post-card">
-        <h3>Posted by <?php echo $_SESSION['user']['username'] ?></h3>
+
+    <!-- add name of who posted the post -->
         <div class="post">
             <div class="post-img">
-                <img src="images/<?= $allPosts['image']?>"/>
+                <img src="../images/<?= $allPosts['image']?>"/>
             </div>
             <div class="post-content">
                 <h2><?= $allPosts['title']?></h2>

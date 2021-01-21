@@ -1,5 +1,5 @@
 <?php
-    require_once 'functions.php';
+    require_once '../functions/functions.php';
     if(isset($_POST['submit-signup'])){
         $username = $_POST['username'];
         $email = $_POST['email'];
@@ -12,6 +12,8 @@
         ];
     
         saveToDB($pdo, 'users', $saveData);
+
+        header('Location: ../index.html');
     }
 ?>
 
@@ -21,7 +23,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The blog</title>
-    <link rel="stylesheet" href="css/login-style.css">
+    <link rel="stylesheet" href="../css/login-style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
@@ -47,7 +49,7 @@
             
             <input type="submit" name="submit-signup" value="Signup">
             <div class="signup_link">
-                Already a member <a href="index.html">Login</a>
+                Already a member <a href="../index.html">Login</a>
             </div>
         </form>
 

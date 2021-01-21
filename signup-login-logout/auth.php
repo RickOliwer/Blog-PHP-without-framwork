@@ -6,7 +6,7 @@
 
 session_start();
 
-require_once 'phpmysqlconnect.php';
+require_once '../database/phpmysqlconnect.php';
 
 $pdo = initDatabase($database);
 
@@ -20,7 +20,7 @@ if(isset($_POST['submit_login']) && password_verify($_POST['password'], $user['p
     session_regenerate_id();
     $_SESSION['logged_in'] = true;
     $_SESSION['user'] = $user;
-    header('Location: home.php');
+    header('Location: ../pages/home.php');
 } else {
-    header('Location: index.html');
+    header('Location: ../index.html');
 }

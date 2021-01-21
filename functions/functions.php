@@ -1,6 +1,6 @@
 <?php
 //session_start();
-require_once 'phpmysqlconnect.php';
+require_once '../database/phpmysqlconnect.php';
 
 $pdo = initDatabase($database);
 
@@ -95,7 +95,7 @@ if(isset($_GET['user'])){
         if($imageError === 0){
             if($imageSize < 1000000){
                 $imageNameNew = uniqid('', true).".".$imageActualExt;
-                $imageDestination = 'images/'.basename($imageNameNew);
+                $imageDestination = '../images/'.basename($imageNameNew);
                 if (move_uploaded_file($imageTmpName, $imageDestination)) {
                     echo "Image uploaded successfully";
                 } else {
