@@ -4,11 +4,6 @@
     error_reporting(E_ALL);
     require 'header.php';
     require_once 'functions.php';
-    // $id = $_SESSION['user']['id'];
-
-    // session_start();
-
-
 ?>
 
 <div class="center">

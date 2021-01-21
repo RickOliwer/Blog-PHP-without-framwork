@@ -17,7 +17,7 @@ function saveToDB($pdo, $tableName, $newData){
 }
 
 function  joinUserWithPost($pdo, $userID){
-    $sql = 'SELECT users.email, posts.image, posts.title, posts.textarea 
+    $sql = 'SELECT users.email, posts.image, posts.title,   posts.textarea, posts.date 
             FROM users
             LEFT JOIN posts
             ON users.id = posts.user_id
@@ -74,6 +74,8 @@ function updateDB($pdo, $tableName, $newData){
 if(isset($_GET['user'])){
 
     if(isset($_POST['add-post-submit'])){
+
+        //behöver nog inte $target
     $target = "images/".basename($_FILES['image']['name']);
 
     $image = $_FILES['image'];
@@ -122,8 +124,6 @@ if(isset($_GET['user'])){
 
     //header('Location: home.php');
 }
-
-
 
 $userID = $_GET['user'];
 $postByUserStatement = joinUserWithPost($pdo, $userID);

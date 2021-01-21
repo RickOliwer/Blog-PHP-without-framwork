@@ -19,7 +19,8 @@ require_once 'functions.php';
             </div>
             <div class="post-content">
                 <h2><?= $allPosts['title']?></h2>
-                <p><?= $allPosts['textarea'] ?></p>   
+                <p><?= $allPosts['textarea'] ?></p>
+                <p><?= $allPosts['date'] ?></p>    
             </div>
         </div>   
     </div>

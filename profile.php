@@ -25,7 +25,8 @@ require 'header.php';
             </div>
             <div class="post-content">
                 <h2><?= $userPosts->title?></h2>
-                <p><?= $userPosts->textarea ?></p>   
+                <p><?= $userPosts->textarea ?></p>
+                <p><?= $userPosts->date ?></p>   
             </div>
         </div>   
     </div>

@@ -20,11 +20,7 @@ if(isset($_POST['submit_login']) && password_verify($_POST['password'], $user['p
     session_regenerate_id();
     $_SESSION['logged_in'] = true;
     $_SESSION['user'] = $user;
-    //$_SESSION['email'] = $user['email'];
     header('Location: home.php');
 } else {
     header('Location: index.html');
 }
-
-
-
