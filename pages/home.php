@@ -1,6 +1,8 @@
 <?php
 require_once '../header/newheader.php';
 require_once '../functions/functions.php';
+$posts = getTableFromDB($pdo, 'posts');
+$postsResults = fetchFromDataBase($posts);
 ?>
 <main class="main-container">
 

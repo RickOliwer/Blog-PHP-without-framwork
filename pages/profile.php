@@ -3,6 +3,9 @@
 // ini_set('display_startup_errors', 1);
 // error_reporting(E_ALL);
 require_once '../header/newheader.php';
+require_once '../functions/add-posts-code.php';
+$users = getTableFromDB($pdo, 'users');
+$usersResults = fetchFromDataBase($users);
 
 ?>
 

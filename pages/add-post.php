@@ -4,6 +4,7 @@
     error_reporting(E_ALL);
     require '../header/newheader.php';
     require_once '../functions/functions.php';
+    require_once '../functions/add-posts-code.php';
 ?>
 
 <div class="center">
