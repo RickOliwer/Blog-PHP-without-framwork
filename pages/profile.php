@@ -4,6 +4,7 @@
 // error_reporting(E_ALL);
 require_once '../header/newheader.php';
 require_once '../functions/add-posts-code.php';
+require_once '../functions/delete-posts-code.php';
 $users = getTableFromDB($pdo, 'users');
 $usersResults = fetchFromDataBase($users);
 
@@ -29,7 +30,8 @@ $usersResults = fetchFromDataBase($users);
             <div class="post-content">
                 <h2><?= $userPosts->title?></h2>
                 <p><?= $userPosts->textarea ?></p>
-                <p><?= $userPosts->date ?></p>   
+                <p><?= $userPosts->updated_at ?></p>
+                <a href="profile.php?delete=<?php echo $userPosts->id ?>">Delete</a>
             </div>
         </div>   
     </div>

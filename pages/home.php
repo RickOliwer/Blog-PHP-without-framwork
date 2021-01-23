@@ -23,7 +23,7 @@ $postsResults = fetchFromDataBase($posts);
             <div class="post-content">
                 <h2><?= $allPosts['title']?></h2>
                 <p><?= $allPosts['textarea'] ?></p>
-                <p><?= $allPosts['date'] ?></p>    
+                <p><?= $allPosts['updated_at'] ?></p>    
             </div>
         </div>   
     </div>

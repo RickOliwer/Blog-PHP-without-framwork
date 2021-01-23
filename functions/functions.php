@@ -15,9 +15,20 @@ function saveToDB($pdo, $tableName, $newData){
     $statement = $pdo->prepare($sql);
     $statement->execute($newData);
 }
+//wrong
+// function deletRowFromTable($pdo, $tableName, $newData){
+//     $sql = sprintf(
+//         'delete from %s where (%s)',
+//         $tableName,
+//         implode(', =>', array_keys($newData))
+//     );
+
+//     $statement = $pdo->prepare($sql);
+//     $statement->execute($newData);
+// }
 
 function  joinUserWithPost($pdo, $userID){
-    $sql = 'SELECT users.email, posts.image, posts.title,   posts.textarea, posts.date 
+    $sql = 'SELECT users.email, posts.id, posts.image, posts.title, posts.textarea, posts.updated_at 
             FROM users
             LEFT JOIN posts
             ON users.id = posts.user_id
