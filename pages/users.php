@@ -1,12 +1,31 @@
 <?php 
 require_once '../header/newheader.php';
-$users = getTableFromDB($pdo, 'users');
-$usersResults = fetchFromDataBase($users);
+//$users = getTableFromDbAndPagination($pdo, $start, $numperpage);
+//$usersResults = fetchFromDataBase($users);
+
+$numperpage = 2;
+//how many total records
+//how many pagination links based on total/numperpage
+$countsql = $pdo->prepare('SELECT COUNT(id) FROM users');
+$countsql->execute();
+$row = $countsql->fetch();
+$numrecords = $row[0];
+$numlinks = ceil($numrecords/$numperpage);
+echo "Total number of records is ".$numlinks;
+$page = $_GET['start'];
+if(!$page) $page = 0; 
+$start = $page * $numperpage;
+$sql = "SELECT * FROM users LIMIT $start,$numperpage";
+$statement = $pdo->prepare($sql);
+$statement->execute();
+$usersResults = $statement->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 
-<?php foreach($usersResults as $user) : ?>
+
     <div class="main-container">
         <div class="contant">
+        <?php foreach($usersResults as $user) : ?>  
     <div class="profile-card">
         <div class="blog-profile">
             <div class="blog-profile_img">
@@ -25,6 +44,11 @@ $usersResults = fetchFromDataBase($users);
         </div>
 
         </div>
+        <?php endforeach; ?>
+        <?php for($i = 0 ; $i < $numlinks ; $i++ ): $y = $i+1?>
+            <a href="users.php?start=<?= $i ?>"><?= $y ?></a>
+        <?php endfor ; ?>
         </div>
         </div>
-<?php endforeach; ?>
+
+

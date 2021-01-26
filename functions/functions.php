@@ -55,6 +55,7 @@ function getTableFromDB($pdo, $tableName){
     return $statement;
 }
 
+
 function fetchFromDataBase($statement) {
     $statement->execute();
 
