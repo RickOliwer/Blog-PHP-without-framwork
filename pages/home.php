@@ -6,9 +6,9 @@ $postsResults = fetchFromDataBase($posts);
 ?>
 <main class="main-container">
 
-<div class="home-contant">
-    <div>
-        <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">Welcome back, <?php echo $_SESSION['user']['username'] ?>!</h2>
+<div class="contant">
+    <div class="welcome">
+        <h2>Welcome back, <?php echo $_SESSION['user']['username'] ?>!</h2>
     </div>
 
 

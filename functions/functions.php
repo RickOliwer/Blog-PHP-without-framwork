@@ -17,8 +17,9 @@ function saveToDB($pdo, $tableName, $newData){
 }
 
 
-function  joinUserWithPost($pdo, $userID){
-    $sql = 'SELECT users.email, users.username, posts.id, posts.image, posts.title, posts.textarea, posts.updated_at 
+function joinUserWithPost($pdo, $userID){
+    $sql = 'SELECT users.email, users.username,
+    users.profile_image, users.f_name, users.l_name, users.created_at, posts.id, posts.image, posts.title, posts.textarea, posts.updated_at 
             FROM users
             LEFT JOIN posts
             ON users.id = posts.user_id

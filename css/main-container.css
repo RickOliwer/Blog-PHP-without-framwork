@@ -6,13 +6,14 @@
 }
 
 .contant{
-    background: rgb(131, 131, 223);
+    
     width: 75%;
     
 }
 
-.side-bar{
-    background: green;
-    width: 25%;
-    
+.contant .welcome h2{
+    width: 80%;
+    margin: auto;
+    padding: 20px 0;
 }
+

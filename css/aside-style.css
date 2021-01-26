@@ -1,0 +1,47 @@
+.side-bar{
+    
+    width: 25%;
+    
+    
+}
+
+.settings {
+    width: 95%;
+    margin: auto;
+    padding: 68px 0 20px;
+}
+
+.settings h2{
+    width: 90%;
+}
+
+.settings ul{
+    list-style: none;
+    padding: 20px 0;
+}
+
+.settings ul li{
+    margin: 40px 0;
+}
+
+.settings ul li a{
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+}
+
+.messages {
+    width: 95%;
+    margin: auto;
+    padding: 0 0 20px 0;
+}
+
+.messages h3{
+    padding: 15px 0;
+    font-weight: 600;
+}
+
+.comment-bubble {
+    background-color: #fff;
+    border-radius: .8rem;
+}

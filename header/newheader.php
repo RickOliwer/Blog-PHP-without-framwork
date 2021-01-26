@@ -19,6 +19,7 @@ if (!isset($_SESSION['logged_in'])) {
     <link rel="stylesheet" href="../css/main-container.css">
     <link rel="stylesheet" href="../css/posts.css">
     <link rel="stylesheet" href="../css/profile-info-styling.css">
+    <link rel="stylesheet" href="../css/aside-style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/login-style.css">
