@@ -15,20 +15,10 @@ function saveToDB($pdo, $tableName, $newData){
     $statement = $pdo->prepare($sql);
     $statement->execute($newData);
 }
-//wrong
-// function deletRowFromTable($pdo, $tableName, $newData){
-//     $sql = sprintf(
-//         'delete from %s where (%s)',
-//         $tableName,
-//         implode(', =>', array_keys($newData))
-//     );
 
-//     $statement = $pdo->prepare($sql);
-//     $statement->execute($newData);
-// }
 
 function  joinUserWithPost($pdo, $userID){
-    $sql = 'SELECT users.email, posts.id, posts.image, posts.title, posts.textarea, posts.updated_at 
+    $sql = 'SELECT users.email, users.username, posts.id, posts.image, posts.title, posts.textarea, posts.updated_at 
             FROM users
             LEFT JOIN posts
             ON users.id = posts.user_id
@@ -38,6 +28,19 @@ function  joinUserWithPost($pdo, $userID){
     $statement->bindParam(':user_id', $userID);
     $statement->execute();
 
+    return $statement;
+}
+
+function joinUserWithComment($pdo, $userCommentID){
+    $sql = 'SELECT users.email, comments.comment_user_id, comments.comment, comments.id
+            FROM users
+            LEFT JOIN comments
+            ON users.id = comments.comment_user_id
+            WHERE comments.comment_user_id = :comment_user_id';
+    
+    $statement = $pdo->prepare($sql);
+    $statement->bindParam(':comment_user_id', $userCommentID);
+    $statement->execute();
     return $statement;
 }
 
@@ -67,11 +70,30 @@ function updateDB($pdo, $tableName, $newData){
     $statement = $pdo->prepare($sql);
     $statement->bindParam(':email', $newData['email']);
     $statement->bindParam(':password', $newData['password']);
+
     $statement->bindParam(':id', $newData['id']);
     
     if($statement->execute()){
         $_SESSION['email'] = $newData['email'];
     }
+
+    return true;
+}
+
+function updateProfile($pdo, $tableName, $newData){
+    $sql = (
+        "UPDATE $tableName SET f_name = :f_name, l_name = :l_name, profile_image = :profile_image WHERE id = :id "
+    );
+
+    $statement = $pdo->prepare($sql);
+    $statement->bindParam(':f_name', $newData['f_name']);
+    $statement->bindParam(':l_name', $newData['l_name']);
+    $statement->bindParam(':profile_image', $newData['profile_image']);
+    $statement->bindParam(':id', $newData['id']);
+    
+    
+    $statement->execute();
+
 
     return true;
 }

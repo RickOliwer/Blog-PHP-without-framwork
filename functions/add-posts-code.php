@@ -51,7 +51,7 @@ if(isset($_GET['user'])){
 
     
 
-    //header('Location: home.php');
+    header('Location: home.php');
 }
 
 $userID = $_GET['user'];
