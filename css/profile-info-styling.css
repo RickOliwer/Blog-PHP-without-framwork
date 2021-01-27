@@ -10,7 +10,7 @@
 
 .blog-profile{
     width: 100%;
-    max-width: 98rem;
+    max-width: 80rem;
     padding: 5rem;
     background-color: #fff;
     box-shadow: 0 1.4rem 8rem rgba(0, 0, 0, .2);
@@ -71,26 +71,31 @@
     color: rgba(0, 0, 0, .7);
 }
 
-.blog-profile_cta{
-    display: inline-block;
-    padding: 1.5rem 3rem;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    font-size: 1.2rem;
-    color: #fff;
-    background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
-    border-radius: .8rem;
-    text-decoration: none;
-
-}
-
 .blog-profile_cta:hover{
     background-image: linear-gradient(to right, #00f2fe 0%, #4facfe 100%);
 }
 
+.pagination-box{
+    width: 80%;
+    margin-bottom: 20px;
+    margin: auto;
+    text-align: center;
+}
+
+.pagination{
+    text-decoration: none;
+    margin: 20px;
+    font-size: 30px;
+    font-weight: 600;
+    color: #333;
+    
+}
+
+
+
 @media screen and (max-width: 1068px){
     .blog-profile{
-        max-width: 80rem;
+        max-width: 70rem;
     }
 
     .blog-profile_img{

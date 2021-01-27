@@ -32,7 +32,6 @@ $usersResults = fetchFromDataBase($users);
                 </div>
                 <h1 class="blog-profile_title"><?php echo $_SESSION['user']['f_name']?> <?php echo $_SESSION['user']['l_name']?></h1>
                 <p class="blog-post_text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam reiciendis libero</p>
-                <!-- <a href="#" class="blog-profile_cta">Read More</a> -->
             </div>
         </div>
 

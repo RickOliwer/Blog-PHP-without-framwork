@@ -2,6 +2,7 @@
 require_once '../header/newheader.php';
 require_once '../functions/add-posts-code.php';
 require_once '../functions/add-comment.php';
+require_once '../functions/add-comment.php';
 ?>
 
 
@@ -24,7 +25,6 @@ require_once '../functions/add-comment.php';
                 </div>
                 <h1 class="blog-profile_title"><?= $userInfo->f_name ?> <?= $userInfo->l_name?></h1>
                 <p class="blog-post_text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam reiciendis libero</p>
-                <!-- <a href="#" class="blog-profile_cta">Read More</a> -->
             </div>
         </div>
 
@@ -53,15 +53,25 @@ require_once '../functions/add-comment.php';
 
 <aside class="side-bar">
 
-
-<?php include 'sidebar.php'; ?>
-<ul>
-<?php foreach($sidebar as $items): ?>
-<li><a href="<?= $items['slug'] ?>"> <?= $items['title']?> </a></li>
-<?php endforeach ; ?>
-</ul>
+<div class="settings">
+    <h2>Settings, privacy & users</h2>
+    <?php include 'sidebar.php'; ?>
+    <ul>
+        <?php foreach($sidebar as $items): ?>
+        <li><a href="<?= $items['slug'] ?>"> <?= $items['title']?> </a></li>
+        <?php endforeach ; ?>
+    </ul>
+</div>
 
 <div class="messeges">
+
+<?php foreach($commentByUser as $comment) : ?>
+<div class="comment">
+<div class="comment-bubble">
+<p><?php echo $comment->comment; ?></p>
+</div>
+
+<?php endforeach ; ?>
 
 <form action="" method="POST">
 <label for="">Comment</label>
