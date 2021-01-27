@@ -79,6 +79,7 @@ $usersResults = fetchFromDataBase($users);
                 <div class="comment">
                 <div class="comment-bubble">
                 <p><?php echo $comment->comment; ?></p>
+                <p>Messages from <?php echo $comment->username; ?></p>
                 </div>
                 <form action="">
                         <p class="reply-message">Hej det är bara bra med mig! klart att vi kan ses</p>

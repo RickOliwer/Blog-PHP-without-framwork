@@ -8,20 +8,22 @@ require_once '../functions/functions.php';
 
 $search = $_POST['search'];
 if (isset($search)){
-    $searchsql = $pdo->prepare("SELECT COUNT(id) AS numresults FROM users where username LIKE ? or l_name LIKE ? OR f_name LIKE ?");
+    $searchsql = $pdo->prepare("SELECT COUNT(id) AS numresults FROM users where username LIKE ? or l_name LIKE ? OR f_name LIKE ? OR email LIKE ?");
     $term = "%$search%";
     $searchsql->bindValue(1, $term, PDO::PARAM_STR);
     $searchsql->bindValue(2, $term, PDO::PARAM_STR);
     $searchsql->bindValue(3, $term, PDO::PARAM_STR);
+    $searchsql->bindValue(4, $term, PDO::PARAM_STR);
     $searchsql->execute();
     $searchrow = $searchsql->fetch();
     echo 'your search for <strong>'.$search.'</strong> generated ('.$searchrow['numresults'].') results.<br>'; 
 
    
-    $displaySearchsql = $pdo->prepare("SELECT * FROM users where username LIKE ? or l_name LIKE ? OR f_name LIKE ?");
+    $displaySearchsql = $pdo->prepare("SELECT * FROM users where username LIKE ? or l_name LIKE ? OR f_name LIKE ? OR email LIKE ?");
     $displaySearchsql->bindValue(1, $term, PDO::PARAM_STR);
     $displaySearchsql->bindValue(2, $term, PDO::PARAM_STR);
     $displaySearchsql->bindValue(3, $term, PDO::PARAM_STR);
+    $displaySearchsql->bindValue(4, $term, PDO::PARAM_STR);
     $displaySearchsql->execute();
     $displaySearchrow = $displaySearchsql->fetchAll(PDO::FETCH_ASSOC);
     

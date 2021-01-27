@@ -18,8 +18,7 @@ function saveToDB($pdo, $tableName, $newData){
 
 
 function joinUserWithPost($pdo, $userID){
-    $sql = 'SELECT users.email, users.username,
-    users.profile_image, users.f_name, users.l_name, users.created_at, posts.id, posts.image, posts.title, posts.textarea, posts.updated_at 
+    $sql = 'SELECT users.email, users.username, posts.id, posts.image, posts.title, posts.textarea, posts.updated_at 
             FROM users
             LEFT JOIN posts
             ON users.id = posts.user_id
@@ -32,8 +31,19 @@ function joinUserWithPost($pdo, $userID){
     return $statement;
 }
 
+function addProfileToViewProfile($pdo, $userID){
+    $sql = 'SELECT users.email, users.username,
+    users.profile_image, users.f_name, users.l_name, users.created_at FROM users WHERE users.id = :id';
+    $statement = $pdo->prepare($sql);
+    $statement->bindParam(':id', $userID);
+    $statement->execute();
+
+    return $statement;
+
+}
+
 function joinUserWithComment($pdo, $userCommentID){
-    $sql = 'SELECT users.email, comments.comment_user_id, comments.comment, comments.id
+    $sql = 'SELECT users.email, users.username, users.id, comments.comment_user_id, comments.comment, comments.id
             FROM users
             LEFT JOIN comments
             ON users.id = comments.comment_user_id

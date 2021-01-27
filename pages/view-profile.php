@@ -3,6 +3,10 @@ require_once '../header/newheader.php';
 require_once '../functions/add-posts-code.php';
 require_once '../functions/add-comment.php';
 require_once '../functions/add-comment.php';
+
+$userID = $_GET['user'];
+$addProfileToViewProfile = addProfileToViewProfile($pdo, $userID);
+$viewProfile = $addProfileToViewProfile->fetchAll(PDO::FETCH_CLASS);
 ?>
 
 
@@ -11,7 +15,8 @@ require_once '../functions/add-comment.php';
 <div class="main-container">
 <?php if(isset($_GET['user'])):?>
     <div class="contant">
-    <?php foreach($postByUser as $userInfo) : ?>
+        <?php print_r($viewProfile); ?>
+    <?php foreach($viewProfile as $userInfo) : ?>
     <div class="profile-card">
         <div class="blog-profile">
             <div class="blog-profile_img">
@@ -41,6 +46,7 @@ require_once '../functions/add-comment.php';
                 <h2><?= $userPosts->title?></h2>
                 <p><?= $userPosts->textarea ?></p>
                 <p><?= $userPosts->updated_at ?></p>
+                <p>Posted by <?= $userPosts->username ?></p>
                 
 
             </div>
@@ -69,6 +75,7 @@ require_once '../functions/add-comment.php';
 <div class="comment">
 <div class="comment-bubble">
 <p><?php echo $comment->comment; ?></p>
+<p>Messages from <a href="view-profile.php?user=<?php echo $comment->id; ?>"><?php echo $comment->username; ?></a></p>
 </div>
 
 <?php endforeach ; ?>
