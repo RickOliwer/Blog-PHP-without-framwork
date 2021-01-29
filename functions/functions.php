@@ -31,6 +31,10 @@ function joinUserWithPost($pdo, $userID){
     return $statement;
 }
 
+function joinReplyWithComment($pdo, $postID){
+    $sql = 'SELECT';
+}
+
 function addProfileToViewProfile($pdo, $userID){
     $sql = 'SELECT users.email, users.username,
     users.profile_image, users.f_name, users.l_name, users.created_at FROM users WHERE users.id = :id';

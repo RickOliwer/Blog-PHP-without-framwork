@@ -105,5 +105,6 @@ $usersResults = fetchFromDataBase($users);
 
 
 </main>
+<script src="../js/post-ani.js"></script>
 </body>
 </html>

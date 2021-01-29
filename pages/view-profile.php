@@ -99,5 +99,6 @@ $viewProfile = $addProfileToViewProfile->fetchAll(PDO::FETCH_CLASS);
 
 
 </main>
+<script src="../js/post-ani.js"></script>
 </body>
 </html>

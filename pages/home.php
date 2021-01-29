@@ -31,6 +31,8 @@ $postsResults = fetchFromDataBase($posts);
 <?php endforeach; ?>
 </div>
 </main>
+
+<script src="../js/post-ani.js"></script>
 </body>
 
 </html>

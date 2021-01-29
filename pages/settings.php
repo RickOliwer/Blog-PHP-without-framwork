@@ -3,7 +3,6 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 require '../header/newheader.php';
-//require_once 'phpmysqlconnect.php';
 require_once '../functions/functions.php';
 
 if(isset($_POST['submit_new_email']) && $_SESSION['token'] == $_POST['token']){

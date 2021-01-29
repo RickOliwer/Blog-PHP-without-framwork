@@ -5,13 +5,15 @@
 // error_reporting(E_ALL);
 require_once '../header/newheader.php';
 
-
+//save number of items to show 
 $numperpage = 2;
 
+//find out how many users
 $countsql = $pdo->prepare('SELECT COUNT(id) FROM users');
 $countsql->execute();
 $row = $countsql->fetch();
 
+//divide them with how many to show
 $numrecords = $row[0];
 $numlinks = ceil($numrecords/$numperpage);
 echo "Total number of records is ".$numlinks;

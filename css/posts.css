@@ -31,5 +31,15 @@ div.post-content {
   font-size: 22px;
 }
   
-  
+
+.post-card {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: 0.8s all ease-in-out;
+}
+
+.post-card-appear {
+  opacity: 1;
+  transform: translateY(0px);
+}  
   
