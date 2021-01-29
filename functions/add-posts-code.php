@@ -28,7 +28,8 @@ if(isset($_GET['user'])){
                     'title' => $title = $_POST['title'],
                     'textarea' => $textArea = $_POST['textarea'],
                     'image' => $imageNameNew,
-                    'user_id' => $userID = $_POST['user_id']
+                    'user_id' => $userID = $_POST['user_id'],
+                    'posted_by' => $postedBy = $_SESSION['user']['username']
                 ];
             
                 saveToDB($pdo, 'posts', $saveData);
@@ -51,7 +52,7 @@ if(isset($_GET['user'])){
 
     
 
-    header('Location: home.php');
+    //header('Location: home.php');
 }
 
 $userID = $_GET['user'];

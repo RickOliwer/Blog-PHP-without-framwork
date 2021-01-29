@@ -43,7 +43,7 @@ function addProfileToViewProfile($pdo, $userID){
 }
 
 function joinUserWithComment($pdo, $userCommentID){
-    $sql = 'SELECT users.email, users.username, users.id, comments.comment_user_id, comments.comment, comments.id
+    $sql = 'SELECT users.email, users.username, users.id, comments.comment_user_id, comments.comment, comments.id, comments.from_id
             FROM users
             LEFT JOIN comments
             ON users.id = comments.comment_user_id
@@ -108,6 +108,15 @@ function updateProfile($pdo, $tableName, $newData){
 
 
     return true;
+}
+
+function deleteColumnFromDB($pdo, $tableName, $id){
+    $sql = sprintf('delete from %s where id=:id',
+    $tableName,
+    );
+    
+    $statement = $pdo->prepare($sql);
+    $statement->execute(array(":id"=>$id));
 }
 
 

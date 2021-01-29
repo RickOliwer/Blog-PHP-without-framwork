@@ -75,7 +75,7 @@ $viewProfile = $addProfileToViewProfile->fetchAll(PDO::FETCH_CLASS);
 <div class="comment">
 <div class="comment-bubble">
 <p><?php echo $comment->comment; ?></p>
-<p>Messages from <a href="view-profile.php?user=<?php echo $comment->id; ?>"><?php echo $comment->username; ?></a></p>
+<p>Messages from <a href="view-profile.php?user=<?php echo $comment->id; ?>"><?php echo $comment->from_id; ?></a></p>
 </div>
 
 <?php endforeach ; ?>

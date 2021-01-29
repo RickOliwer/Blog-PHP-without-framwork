@@ -9,6 +9,7 @@ require_once '../functions/delete-comment.php';
 require_once '../functions/add-comment.php';
 $users = getTableFromDB($pdo, 'users');
 $usersResults = fetchFromDataBase($users);
+
 ?>
 
 
@@ -79,10 +80,10 @@ $usersResults = fetchFromDataBase($users);
                 <div class="comment">
                 <div class="comment-bubble">
                 <p><?php echo $comment->comment; ?></p>
-                <p>Messages from <?php echo $comment->username; ?></p>
+                <p>Messages from <?php echo $comment->from_id; ?></p>
                 </div>
                 <form action="">
-                        <p class="reply-message">Hej det är bara bra med mig! klart att vi kan ses</p>
+                        <p class="reply-message">Hej hej</p>
                     <textarea name="reply-commment" type="text"></textarea>
                     <div class="reply-submit">
                     <input type="submit" name="submit-answer" value="Reply">
