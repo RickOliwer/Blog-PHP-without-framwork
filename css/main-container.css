@@ -28,3 +28,33 @@
     letter-spacing: 2px;
 }
 
+.hero {
+    background: url("../hero-img/pexels-luis-del-río-15286.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 109vh;
+    position: relative;
+    top: 0;
+  }
+  
+  .text {
+    margin: auto;
+    color: #fff;
+    position: relative;
+    top: 70%;
+    left: 60%;
+    transform: translateX(-50%);
+  }
+  
+  .text p {
+    letter-spacing: 3px;
+    font-weight: bolder;
+  }
+  
+  .text h2 {
+    font-size: 42px;
+    font-weight: bolder;
+    letter-spacing: 3px;
+  }
+

@@ -4,9 +4,18 @@ require_once '../functions/functions.php';
 $posts = getTableFromDB($pdo, 'posts');
 $postsResults = fetchFromDataBase($posts);
 ?>
+
+<div class="hero">
+    <div class="text">
+        <p>Nice to have you back</p>
+        <h2>Welcome back <?php echo $_SESSION['user']['username'] ?>!</h2>
+
+    </div>
+</div>
 <main class="main-container">
 
 <div class="contant">
+
     <div class="welcome">
         <h2>Welcome back, <?php echo $_SESSION['user']['username'] ?>!</h2>
     </div>
