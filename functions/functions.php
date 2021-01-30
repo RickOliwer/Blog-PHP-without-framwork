@@ -32,7 +32,17 @@ function joinUserWithPost($pdo, $userID){
 }
 
 function joinReplyWithComment($pdo, $postID){
-    $sql = 'SELECT';
+    $sql = 'SELECT comments.id, reply.reply, reply.created_at, reply.posted_by
+            FROM comments
+            LEFT JOIN reply
+            ON comments.id = reply.comment_id
+            WHERE reply.comment_id = :comment_id';
+    
+    $statement = $pdo->prepare($sql);
+    $statement->bindParam(':comment_id', $postID);
+    $statement->execute();
+
+    return $statement;
 }
 
 function addProfileToViewProfile($pdo, $userID){
@@ -123,7 +133,7 @@ function deleteColumnFromDB($pdo, $tableName, $id){
     $statement->execute(array(":id"=>$id));
 }
 
-function addImageToFolder($imageInput, $folder){
+function addImageToFolder($imageInput, $folder, $imageByteSize){
     $image = $_FILES[$imageInput];
 
     $imageName = $_FILES[$imageInput]['name'];
@@ -139,10 +149,10 @@ function addImageToFolder($imageInput, $folder){
 
     if(in_array($imageActualExt, $allowed)){
         if($imageError === 0){
-            if($imageSize < 1000000){
+            if($imageSize < $imageByteSize){
                 $imageNameNew = uniqid('', true).".".$imageActualExt;
                 $imageDestination = $folder.basename($imageNameNew);
-                
+                //maybe not basename
 
                 if (move_uploaded_file($imageTmpName, $imageDestination)) {
                     echo "Image uploaded successfully";

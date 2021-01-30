@@ -7,8 +7,13 @@ require_once '../functions/add-posts-code.php';
 require_once '../functions/delete-posts-code.php';
 require_once '../functions/delete-comment.php';
 require_once '../functions/add-comment.php';
-$users = getTableFromDB($pdo, 'users');
-$usersResults = fetchFromDataBase($users);
+//wrong
+// $users = getTableFromDB($pdo, 'users');
+// $usersResults = fetchFromDataBase($users);
+
+$userID = $_GET['user'];
+$addProfileToViewProfile = addProfileToViewProfile($pdo, $userID);
+$viewProfile = $addProfileToViewProfile->fetchAll(PDO::FETCH_CLASS);
 
 ?>
 
@@ -19,24 +24,26 @@ $usersResults = fetchFromDataBase($users);
 <?php if(isset($_GET['user'])):?>
     <div class="main-container">
         <div class="contant">
-        <h2>Profile</h2>
+        <h2 class="page-title">Profile</h2>
+        <?php foreach($viewProfile as $userProfile) : ?>
         <div class="profile-card">
         <div class="blog-profile">
             <div class="blog-profile_img">
-                <img src="../profileimages/<?= $_SESSION['user']['profile_image']?>" alt="">
+                <img src="../profileimages/<?= $userProfile->profile_image?>" alt="">
             </div>
             <div class="blog-profile_info">
                 <div class="blog-profile_data">
-                    <span>Joined <?php echo $_SESSION['user']['created_at']?></span>
-                    <span>Email <?php echo $_SESSION['user']['email']?></span>
+                    <span>Joined <?php echo $userProfile->created_at?></span>
+                    <span>Email <?php echo $userProfile->email?></span>
                     
                 </div>
-                <h1 class="blog-profile_title"><?php echo $_SESSION['user']['f_name']?> <?php echo $_SESSION['user']['l_name']?></h1>
+                <h1 class="blog-profile_title"><?= $userProfile->f_name ?> <?= $userProfile->l_name ?></h1>
                 <p class="blog-post_text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam reiciendis libero</p>
             </div>
         </div>
 
         </div>
+        <?php endforeach; ?>
         
 
         
@@ -79,21 +86,39 @@ $usersResults = fetchFromDataBase($users);
                 <?php foreach($commentByUser as $comment) : ?>
                 <div class="comment">
                 <div class="comment-bubble">
-                <p><?php echo $comment->comment; ?></p>
                 <p>Messages from <?php echo $comment->from_id; ?></p>
-                </div>
-                <form action="">
-                        <p class="reply-message">Hej hej</p>
-                    <textarea name="reply-commment" type="text"></textarea>
-                    <div class="reply-submit">
-                    <input type="submit" name="submit-answer" value="Reply">
-                    </div>
-                </form>
+                <p><?php echo $comment->comment; ?></p>
                 
                 <div class="delete-comment">
                 <a href="profile.php?delete-comment=<?php echo $comment->id ?>">Delete</a>
                 </div>
                 </div>
+                </div>
+                
+                <form action="">
+                <div class="comment">
+                <div class="comment-bubble">
+                <p>Reply from </p>
+                <p>hej hej</p>
+                
+                <div class="delete-comment">
+                <a href="profile.php?delete-comment=<?php echo $comment->id ?>">Delete</a>
+                </div>
+                </div>
+                </div>
+                <div class="txt_field">    
+                <textarea name="comment" type="text" require></textarea>
+                <label for="">Message</label>
+                </div>
+
+                <div class="comment-button">
+                <input type="submit" name="comment-submit" value="Submit">
+                <input type="hidden" value="<?php echo $_GET['user'] ?>" name="comment_user_id" /> 
+                </div>
+                </form>
+                
+
+                
                 <?php endforeach ; ?>
 
 

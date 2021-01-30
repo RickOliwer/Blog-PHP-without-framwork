@@ -6,7 +6,7 @@
 require_once '../header/newheader.php';
 
 //save number of items to show 
-$numperpage = 2;
+$numperpage = 3;
 
 //find out how many users
 $countsql = $pdo->prepare('SELECT COUNT(id) FROM users');

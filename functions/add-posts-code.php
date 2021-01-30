@@ -66,7 +66,8 @@ if(isset($_GET['user'])){
     if(isset($_POST['add-post-submit'])){
         $imageInput = 'image';
         $folder = '../images/';
-        $imageName = addImageToFolder($imageInput, $folder);
+        $imageByteSize = 5000000;
+        $imageName = addImageToFolder($imageInput, $folder, $imageByteSize);
 
         $saveData = [
             'title' => $title = $_POST['title'],

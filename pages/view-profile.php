@@ -15,7 +15,7 @@ $viewProfile = $addProfileToViewProfile->fetchAll(PDO::FETCH_CLASS);
 <div class="main-container">
 <?php if(isset($_GET['user'])):?>
     <div class="contant">
-        <?php print_r($viewProfile); ?>
+        <h2 class="page-title">Profile</h2>
     <?php foreach($viewProfile as $userInfo) : ?>
     <div class="profile-card">
         <div class="blog-profile">
@@ -71,27 +71,33 @@ $viewProfile = $addProfileToViewProfile->fetchAll(PDO::FETCH_CLASS);
 
 <div class="messeges">
 
+<div class="center-aside">
+<form method="POST">
+<div class="txt_field">    
+<textarea name="comment" type="text" require></textarea>
+<label for="">Message</label>
+</div>
+
+<div class="comment-button">
+<input type="submit" name="comment-submit" value="Submit">
+<input type="hidden" value="<?php echo $_GET['user'] ?>" name="comment_user_id" /> 
+</div>
+
+</form>
+
+</div>
+
 <?php foreach($commentByUser as $comment) : ?>
 <div class="comment">
 <div class="comment-bubble">
-<p><?php echo $comment->comment; ?></p>
-<p>Messages from <a href="view-profile.php?user=<?php echo $comment->id; ?>"><?php echo $comment->from_id; ?></a></p>
+<p class="from">Messages from <?php echo $comment->from_id; ?></p>
+<p class="message-txt"><?php echo $comment->comment; ?></p>
+
+</div>
 </div>
 
 <?php endforeach ; ?>
-
-<form action="" method="POST">
-<label for="">Comment</label>
-<textarea name="comment" type="text" require></textarea>
-                
-<input type="submit" name="comment-submit" value="Submit">
-<input type="hidden" value="<?php echo $_GET['user'] ?>" name="comment_user_id" /> 
-
-</form>
-<p></p>
-
 </div>
-
 </aside>
 <?php endif ;?>
 </div>

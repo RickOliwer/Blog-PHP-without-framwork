@@ -41,7 +41,50 @@
     font-weight: 600;
 }
 
-.comment-bubble {
+.comment {
     background-color: #fff;
     border-radius: .8rem;
+    margin: 15px;
+    
 }
+
+.comment-bubble {
+    width: 85%;   
+    margin: auto;
+}
+
+.comment-bubble p{
+    padding: 15px 0;
+}
+
+.comment-bubble .from{
+    font-size: 1.2rem;
+    color: steelblue;
+    font-weight: 600;
+}
+
+.center-aside{
+    width: 80%;
+    margin: auto;
+    padding-bottom: 50px;
+}
+
+.comment-button{
+    width: 120px;
+}
+.txt_field textarea{
+    width: 100%;
+    padding: 0 5px;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.txt_field textarea:focus ~ label,
+.txt_field textarea:valid ~ label{
+    top: -5px;
+    color: #2691d9;
+}
+

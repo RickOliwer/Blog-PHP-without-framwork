@@ -10,7 +10,7 @@ if(isset($_POST['submit_new_email']) && $_SESSION['token'] == $_POST['token']){
         exit("Token expired. Please reload form.");
     }
 
-    if(isset($_POST['old_password']) == $_SESSION['user']['password']){
+    if(password_hash($_POST['old_password'], PASSWORD_BCRYPT) == $_SESSION['user']['password']){
 
     $email = $_POST['email'];
     $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
@@ -84,7 +84,8 @@ if(isset($_POST['submit_new_email']) && $_SESSION['token'] == $_POST['token']){
 if(isset($_POST['profile_submit'])){
     $imageInput = 'profile_image';
     $folder = '../profileimages/';
-    $imageName = addImageToFolder($imageInput, $folder);
+    $imageByteSize = 5000000;
+    $imageName = addImageToFolder($imageInput, $folder, $imageByteSize);
 
     $saveData = [
         'f_name' => $f_name = $_POST['f_name'],
