@@ -1,9 +1,5 @@
 <?php 
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
-    require '../header/newheader.php';
-    require_once '../functions/functions.php';
+    require_once '../header/newheader.php';
     require_once '../functions/add-posts-code.php';
 ?>
 
@@ -17,15 +13,15 @@
                 <span></span>
                 <label for="">Title</label>
             </div> 
-            <div class="txt_field">
-                <input type="file" name="image" value="">
+           
+                <input type="file" name="image" value="" require>
 
-            </div>
             
+            <div class="txt_field">
                 <textarea name="textarea" require></textarea>
                 
                 <label for="">Description</label>
-            
+            </div>
             
             <input type="submit" name="add-post-submit" value="Add Post">
             <div class="signup_link">

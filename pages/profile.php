@@ -1,15 +1,9 @@
 <?php
-// ini_set('display_errors', 1);
-// ini_set('display_startup_errors', 1);
-// error_reporting(E_ALL);
 require_once '../header/newheader.php';
 require_once '../functions/add-posts-code.php';
 require_once '../functions/delete-posts-code.php';
 require_once '../functions/delete-comment.php';
 require_once '../functions/add-comment.php';
-//wrong
-// $users = getTableFromDB($pdo, 'users');
-// $usersResults = fetchFromDataBase($users);
 
 $userID = $_GET['user'];
 $addProfileToViewProfile = addProfileToViewProfile($pdo, $userID);
@@ -20,7 +14,7 @@ $viewProfile = $addProfileToViewProfile->fetchAll(PDO::FETCH_CLASS);
 
 
 <main>
-
+<!-- if user is set display that users db -->
 <?php if(isset($_GET['user'])):?>
     <div class="main-container">
         <div class="contant">
@@ -48,7 +42,7 @@ $viewProfile = $addProfileToViewProfile->fetchAll(PDO::FETCH_CLASS);
 
         
 
-
+<!-- display this users posts -->
 <?php foreach(array_reverse($postByUser) as $userPosts) : ?>
     <div class="post-card">
         <h3>Posted by <?= $userPosts->username ?></h3>
@@ -68,7 +62,7 @@ $viewProfile = $addProfileToViewProfile->fetchAll(PDO::FETCH_CLASS);
 
     </div>
 
-        
+        <!-- profile sidebar with messages and settings -->
         <aside class="side-bar">
             <div class="settings">
             <h2>Settings, privacy & users</h2>
@@ -86,38 +80,14 @@ $viewProfile = $addProfileToViewProfile->fetchAll(PDO::FETCH_CLASS);
                 <?php foreach($commentByUser as $comment) : ?>
                 <div class="comment">
                 <div class="comment-bubble">
-                <p>Messages from <?php echo $comment->from_id; ?></p>
-                <p><?php echo $comment->comment; ?></p>
+                <p class="from">Messages from <?php echo $comment->from_id; ?></p>
+                <p class="message-txt"><?php echo $comment->comment; ?></p>
                 
                 <div class="delete-comment">
                 <a href="profile.php?delete-comment=<?php echo $comment->id ?>">Delete</a>
                 </div>
                 </div>
                 </div>
-                
-                <form action="">
-                <div class="comment">
-                <div class="comment-bubble">
-                <p>Reply from </p>
-                <p>hej hej</p>
-                
-                <div class="delete-comment">
-                <a href="profile.php?delete-comment=<?php echo $comment->id ?>">Delete</a>
-                </div>
-                </div>
-                </div>
-                <div class="txt_field">    
-                <textarea name="comment" type="text" require></textarea>
-                <label for="">Message</label>
-                </div>
-
-                <div class="comment-button">
-                <input type="submit" name="comment-submit" value="Submit">
-                <input type="hidden" value="<?php echo $_GET['user'] ?>" name="comment_user_id" /> 
-                </div>
-                </form>
-                
-
                 
                 <?php endforeach ; ?>
 

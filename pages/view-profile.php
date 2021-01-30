@@ -88,16 +88,15 @@ $viewProfile = $addProfileToViewProfile->fetchAll(PDO::FETCH_CLASS);
 </div>
 
 <?php foreach($commentByUser as $comment) : ?>
-<div class="comment">
-<div class="comment-bubble">
-<p class="from">Messages from <?php echo $comment->from_id; ?></p>
-<p class="message-txt"><?php echo $comment->comment; ?></p>
+    <div class="comment">
+        <div class="comment-bubble">
+            <p class="from">Messages from <?php echo $comment->from_id; ?></p>
+            <p class="message-txt"><?php echo $comment->comment; ?></p>
 
-</div>
-</div>
-
+        </div>
+    </div>
 <?php endforeach ; ?>
-</div>
+    </div>
 </aside>
 <?php endif ;?>
 </div>

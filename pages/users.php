@@ -16,7 +16,7 @@ $row = $countsql->fetch();
 //divide them with how many to show
 $numrecords = $row[0];
 $numlinks = ceil($numrecords/$numperpage);
-echo "Total number of records is ".$numlinks;
+
 $page = $_GET['start'];
 if(!$page) $page = 0; 
 $start = $page * $numperpage;

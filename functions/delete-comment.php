@@ -2,8 +2,6 @@
 
 session_start();
 
-
-
 require_once 'functions.php';
 
 $userid = $_SESSION['user']['id'];

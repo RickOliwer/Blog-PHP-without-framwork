@@ -1,9 +1,9 @@
 <?php
-//session_start();
 require_once '../database/phpmysqlconnect.php';
 
 $pdo = initDatabase($database);
 
+//generic function to add data to database
 function saveToDB($pdo, $tableName, $newData){
     $sql = sprintf(
         'insert into %s (%s) values (%s)',
@@ -90,7 +90,6 @@ function fetchFromDataBase($statement) {
 function updateDB($pdo, $tableName, $newData){
     $sql = (
        "UPDATE $tableName SET email = :email, password = :password WHERE id = :id"
-
     );
     
     $statement = $pdo->prepare($sql);

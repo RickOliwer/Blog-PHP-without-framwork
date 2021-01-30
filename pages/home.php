@@ -7,7 +7,6 @@ $postsResults = fetchFromDataBase($posts);
 
 <div class="hero">
     <div class="text">
-        <p>Nice to have you back</p>
         <h2>Welcome back <?php echo $_SESSION['user']['username'] ?>!</h2>
 
     </div>
@@ -15,11 +14,6 @@ $postsResults = fetchFromDataBase($posts);
 <main class="main-container">
 
 <div class="contant">
-
-    <div class="welcome">
-        <h2>Welcome back, <?php echo $_SESSION['user']['username'] ?>!</h2>
-    </div>
-
 
 <?php foreach(array_reverse($postsResults) as $allPosts) : ?>
     <div class="post-card">
