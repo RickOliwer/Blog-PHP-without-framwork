@@ -9,11 +9,12 @@ And the app should work
 
 You might have to edit the database/dbconfig.php file if you're using for example a password.
 
-<?php
 
+```
 $database = [
     'host' => '127.0.0.1',
     'dbname' => 'blog',
     'username' => 'root',
     'password' => '',
 ];
+```
