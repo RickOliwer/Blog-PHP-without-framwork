@@ -17,3 +17,5 @@ $database = [
     'password' => '',
 ];
 ```
+
+If you are getting an error when uploading an image you have to give full permission on the profileimages and images folder. This is usually an mac or XAMPP issue.
